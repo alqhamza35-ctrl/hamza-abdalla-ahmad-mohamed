@@ -129,7 +129,7 @@
             <!-- Action Controls (Theme, Language, WhatsApp CTA) -->
             <div class="flex items-center gap-2 sm:gap-3">
                 <!-- Theme Switcher Button -->
-                <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700" title="تغيير المظهر" aria-label="Toggle Theme">
+                <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700" data-i18n-title="theme_toggle" data-i18n-aria="theme_toggle">
                     <i class="fa-solid fa-sun hidden dark:block text-gold-400 text-lg"></i>
                     <i class="fa-solid fa-moon block dark:hidden text-indigo-600 text-lg"></i>
                 </button>
@@ -147,7 +147,7 @@
                 </a>
 
                 <!-- Mobile Hamburger Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700" aria-label="Menu">
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700" data-i18n-aria="menu_label">
                     <i class="fa-solid fa-bars text-lg" id="menu-icon"></i>
                 </button>
             </div>
@@ -322,20 +322,11 @@
 
         <!-- ================= VIEW 2: CERTIFICATES ================= -->
         <section id="view-certificates" class="view-section hidden space-y-8">
-            <div class="border-b border-gray-200 dark:border-gray-800 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1 font-medium" data-i18n="cert_page_sub">السجل الأكاديمي والشهادات التخصصية المعتمدة لمهندس البرمجيات حمزا عبد الله</p>
-                </div>
-                <div class="hidden sm:block">
-                    <a href="#view-certificates" class="text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 transition-all">
-                        <i class="fa-solid fa-certificate text-xs ml-1.5"></i> View Certificates
-                    </a>
-                </div>
+            <div class="border-b border-gray-200 dark:border-gray-800 pb-5">
+                <h2 class="text-3xl font-black text-gray-900 dark:text-white" data-i18n="cert_page_title">معرض الشهادات والدورات (6)</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1 font-medium" data-i18n="cert_page_sub">السجل الأكاديمي والشهادات التخصصية المعتمدة لمهندس البرمجيات حمزة عبد الله</p>
             </div>
-
-            <!-- 6 Verified Certificates Showcase Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="certificates-grid">
-                <!-- Dynamically generated via renderCertificatesGrid() -->
             </div>
         </section>
 
@@ -343,25 +334,28 @@
         <section id="view-projects" class="view-section hidden space-y-8">
             <div class="border-b border-gray-200 dark:border-gray-800 pb-5">
                 <h2 class="text-3xl font-black text-gray-900 dark:text-white" data-i18n="proj_page_title">معرض المشاريع والأعمال</h2>
-                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1 font-medium" data-i18n="proj_page_sub">مساحة خاصة ومخصصة لإضافة واستعراض المشاريع البرمجية القادمة</p>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1 font-medium" data-i18n="proj_page_sub">مجموعة من المشاريع البرمجية التفاعلية والأعمال المنفذة</p>
             </div>
-
-            <!-- Empty Placeholder Card -->
-            <div class="bg-white dark:bg-navy-900 rounded-3xl border border-dashed border-gray-300 dark:border-gray-800 p-8 sm:p-16 text-center space-y-6">
-                <div class="w-20 h-20 mx-auto rounded-3xl bg-brand-50 dark:bg-navy-800 text-brand-600 dark:text-gold-400 flex items-center justify-center text-3xl shadow-inner border border-gold-500/20">
-                    <i class="fa-solid fa-folder-open"></i>
-                </div>
-                <div class="max-w-md mx-auto space-y-2">
-                    <h3 class="text-xl font-black text-gray-900 dark:text-white" data-i18n="proj_empty_title">المكان مخصص للمشاريع الجديدة</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed font-medium" data-i18n="proj_empty_desc">
-                        هذه الصفحة جاهزة تماماً لاستقبال أعمالك ومشاريعك المستقبليّة. عند تزويدي باسم المشروع ورابطه، سيتم إدراجه وعرضه هنا مباشرة.
-                    </p>
-                </div>
-                <div class="pt-2 flex justify-center gap-3">
-                    <button onclick="switchView('contact')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-extrabold text-sm hover:from-brand-500 hover:to-indigo-500 transition-all shadow-md">
-                        <i class="fa-solid fa-plus ml-1.5"></i> <span data-i18n="proj_request_btn">طلب بناء مشروع جديد</span>
-                    </button>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="bg-white dark:bg-navy-900 rounded-3xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-2xl hover:border-gold-500/50 transition-all duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-indigo-950 via-purple-900 to-navy-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 30% 40%, #F3C64F 0 3px, transparent 4px), radial-gradient(circle at 70% 60%, #2563eb 0 5px, transparent 6px); background-size: 42px 42px;"></div>
+                        <i class="fa-solid fa-gamepad text-7xl text-gold-400 drop-shadow-lg"></i>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-black text-xl text-gray-900 dark:text-white mb-2" data-i18n="project_game_title">لعبة ويب تفاعلية</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5" data-i18n="project_game_desc">مشروع لعبة ويب تفاعلية مبني وتقادم عبر تقنيات الويب الحديثة.</p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 text-[10px] font-bold">HTML</span>
+                            <span class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 text-[10px] font-bold">CSS</span>
+                            <span class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 text-[10px] font-bold">JavaScript</span>
+                        </div>
+                        <a href="https://alqhamza35-ctrl.github.io/game/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-extrabold rounded-xl hover:scale-[1.02] transition-transform">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span data-i18n="project_play">تشغيل المشروع</span>
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -429,7 +423,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="space-y-1.5">
                                 <label class="text-xs font-bold text-gray-700 dark:text-gray-300" data-i18n="form_name">الاسم الكريم</label>
-                                <input type="text" id="form-input-name" required placeholder="ادخل اسمك..." class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-gold-500 text-sm font-medium">
+                                <input type="text" id="form-input-name" required data-i18n-placeholder="form_name_placeholder" placeholder="ادخل اسمك..." class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-gold-500 text-sm font-medium">
                             </div>
                             <div class="space-y-1.5">
                                 <label class="text-xs font-bold text-gray-700 dark:text-gray-300" data-i18n="form_contact_info">رقم الهاتف أو البريد الإلكتروني</label>
@@ -439,7 +433,7 @@
 
                         <div class="space-y-1.5">
                             <label class="text-xs font-bold text-gray-700 dark:text-gray-300" data-i18n="form_msg">تفاصيل الرسالة أو المشروع</label>
-                            <textarea id="form-input-message" rows="4" required placeholder="اكتب التفاصيل والمتطلبات هنا..." class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-gold-500 text-sm font-medium"></textarea>
+                            <textarea id="form-input-message" rows="4" required data-i18n-placeholder="form_message_placeholder" placeholder="اكتب التفاصيل والمتطلبات هنا..." class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-gold-500 text-sm font-medium"></textarea>
                         </div>
 
                         <!-- Sending Channel Selection -->
@@ -496,7 +490,7 @@
                         </span>
                     </div>
                 </div>
-                <button onclick="toggleChatWindow()" class="p-1.5 rounded-lg hover:bg-white/10 text-white transition-colors" aria-label="Close Chat">
+                <button onclick="toggleChatWindow()" class="p-1.5 rounded-lg hover:bg-white/10 text-white transition-colors" data-i18n-aria="close_chat">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
@@ -521,7 +515,7 @@
 
             <!-- Chat Form -->
             <form onsubmit="handleChatSubmit(event)" class="p-3 bg-white dark:bg-navy-900 border-t border-gray-100 dark:border-gray-800 flex gap-2">
-                <input type="text" id="chat-input" placeholder="اكتب سؤالك هنا..." class="flex-grow px-3.5 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-xs border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-gold-500 font-medium">
+                <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="اكتب سؤالك هنا..." class="flex-grow px-3.5 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-xs border border-gray-200 dark:border-gray-700 focus:outline-none focus:border-gold-500 font-medium">
                 <button type="submit" class="w-9 h-9 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white flex items-center justify-center shrink-0 hover:from-brand-500 hover:to-indigo-500 transition-colors">
                     <i class="fa-solid fa-paper-plane text-xs"></i>
                 </button>
@@ -530,7 +524,7 @@
         </div>
 
         <!-- Floating Toggle Trigger -->
-        <button onclick="toggleChatWindow()" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-tr from-brand-600 via-indigo-600 to-navy-800 text-gold-400 border border-gold-500/40 flex items-center justify-center text-2xl shadow-2xl hover:scale-110 active:scale-95 transition-all glow-effect relative" aria-label="Open AI Assistant">
+        <button onclick="toggleChatWindow()" id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-tr from-brand-600 via-indigo-600 to-navy-800 text-gold-400 border border-gold-500/40 flex items-center justify-center text-2xl shadow-2xl hover:scale-110 active:scale-95 transition-all glow-effect relative" data-i18n-aria="open_chat">
             <i class="fa-solid fa-comments"></i>
             <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white dark:border-navy-900"></span>
         </button>
@@ -543,9 +537,9 @@
             <div class="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-3">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-certificate text-gold-500 text-xl"></i>
-                    <h3 class="font-black text-lg text-gray-900 dark:text-white" id="modal-cert-title">معاينة الشهادة</h3>
+                    <h3 class="font-black text-lg text-gray-900 dark:text-white" id="modal-cert-title" data-i18n="modal_cert_title">معاينة الشهادة</h3>
                 </div>
-                <button onclick="closeCertModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-xl" aria-label="Close Modal">
+                <button onclick="closeCertModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-xl" data-i18n-aria="close_modal">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -554,13 +548,13 @@
             <div id="modal-cert-svg-container" class="w-full rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg bg-gray-900"></div>
 
             <div class="space-y-2">
-                <h4 class="font-black text-xl text-gray-900 dark:text-white" id="modal-cert-name">اسم الشهادة</h4>
-                <p class="text-xs text-brand-600 dark:text-gold-400 font-extrabold" id="modal-cert-org">الجهة المصدرة</p>
-                <p class="text-xs text-gray-500 dark:text-gray-300 font-medium leading-relaxed" id="modal-cert-desc">الوصف التفصيلي</p>
+                <h4 class="font-black text-xl text-gray-900 dark:text-white" id="modal-cert-name" data-i18n="modal_cert_name">اسم الشهادة</h4>
+                <p class="text-xs text-brand-600 dark:text-gold-400 font-extrabold" id="modal-cert-org" data-i18n="modal_cert_org">الجهة المصدرة</p>
+                <p class="text-xs text-gray-500 dark:text-gray-300 font-medium leading-relaxed" id="modal-cert-desc" data-i18n="modal_cert_desc">الوصف التفصيلي</p>
                 <div class="pt-2 flex flex-wrap gap-2 text-xs font-bold text-gray-500 dark:text-gray-400" id="modal-cert-meta"></div>
             </div>
 
-            <button onclick="closeCertModal()" class="w-full py-3 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-extrabold rounded-xl text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <button onclick="closeCertModal()" class="w-full py-3 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-extrabold rounded-xl text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" data-i18n="modal_close">
                 إغلاق
             </button>
         </div>
@@ -675,6 +669,11 @@
                 hero_desc: "متخصص في هندسة البرمجيات، تصميم وتطوير تطبيقات الويب عالية الأداء، صياغة الأنظمة القابلة للتوسع، وتحليل البيانات الذكية بأعلى معايير الجودة والأمان.",
                 cta_start: "ابدأ مشروعك الآن",
                 cta_certificates: "استعرض الشهادات (6)",
+                proj_page_title: "معرض المشاريع والأعمال",
+                proj_page_sub: "مجموعة من المشاريع البرمجية التفاعلية والأعمال المنفذة",
+                project_game_title: "لعبة ويب تفاعلية",
+                project_game_desc: "مشروع لعبة ويب تفاعلية مبني عبر تقنيات الويب الحديثة.",
+                project_play: "تشغيل المشروع",
                 contact_phone_lbl: "الهاتف / واتساب",
                 contact_email_lbl: "البريد الإلكتروني",
                 skills_title: "الخبرات والقدرات التقنية",
@@ -719,8 +718,20 @@
                 chip_certs: "الشهادات",
                 chip_contact: "التواصل المباشر",
                 chat_title: "المساعد الذكي للمهندس حمزة",
-                chat_welcome: "أهلاً بك! أنا المساعد الذكي لمهندس البرمجيات حمزة عبد الله أحمد محمد عبد الخالق. يمكنني إجابتك حول الشهادات، التسعير، والمجالات البرمجية. كيف أساعدك اليوم؟",
-                copied_toast: "تم نسخ النص بنجاح!"
+                chat_welcome: "أهلاً بك! أنا المساعد الذكي لمهندس البرمجيات حمزة عبد الله أحمد محمد عبد الخالق. يمكنني مساعدتك في التسعير والمجالات البرمجية والتواصل المباشر. كيف أساعدك اليوم؟",
+                copied_toast: "تم نسخ النص بنجاح!",
+                theme_toggle: "تغيير المظهر",
+                menu_label: "القائمة",
+                close_chat: "إغلاق المحادثة",
+                open_chat: "فتح المساعد الذكي",
+                modal_close: "إغلاق",
+                modal_cert_title: "معاينة الشهادة",
+                modal_cert_name: "اسم الشهادة",
+                modal_cert_org: "الجهة المصدرة",
+                modal_cert_desc: "الوصف التفصيلي",
+                form_name_placeholder: "ادخل اسمك...",
+                form_message_placeholder: "اكتب التفاصيل والمتطلبات هنا...",
+                chat_placeholder: "اكتب سؤالك هنا..."
             },
             en: {
                 nav_home: "Home",
@@ -733,6 +744,11 @@
                 hero_desc: "Specialized in software engineering, modern web app development, scalable cloud solutions, and data management adhering to high performance standards.",
                 cta_start: "Start Your Project",
                 cta_certificates: "View 6 Certificates",
+                proj_page_title: "Projects & Portfolio",
+                proj_page_sub: "A collection of interactive software projects and completed work",
+                project_game_title: "Interactive Web Game",
+                project_game_desc: "An interactive web game project built with modern web technologies.",
+                project_play: "Launch Project",
                 contact_phone_lbl: "Phone / WhatsApp",
                 contact_email_lbl: "Official Email",
                 skills_title: "Engineering Competencies",
@@ -778,7 +794,19 @@
                 chip_contact: "Direct Contact",
                 chat_title: "Eng. Hamza's AI Assistant",
                 chat_welcome: "Hello! I am the AI assistant for Software Engineer Hamza Abdalla Ahmed Mohamed Abdelkhalek. How can I assist you today?",
-                copied_toast: "Copied to clipboard successfully!"
+                copied_toast: "Copied to clipboard successfully!",
+                theme_toggle: "Toggle Theme",
+                menu_label: "Menu",
+                close_chat: "Close Chat",
+                open_chat: "Open AI Assistant",
+                modal_close: "Close",
+                modal_cert_title: "Certificate Preview",
+                modal_cert_name: "Certificate Name",
+                modal_cert_org: "Issuing Organization",
+                modal_cert_desc: "Detailed Description",
+                form_name_placeholder: "Enter your name...",
+                form_message_placeholder: "Write your details and requirements...",
+                chat_placeholder: "Type your question here..."
             }
         };
 
@@ -829,6 +857,7 @@
             
             renderCertificatesGrid();
             updateLanguageUI();
+            initBotWelcomeMessage();
         }
 
         // Render the actual uploaded certificate photograph
@@ -913,6 +942,21 @@
                     el.innerText = langData[key];
                 }
             });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (langData[key]) el.placeholder = langData[key];
+            });
+            document.querySelectorAll('[data-i18n-title]').forEach(el => {
+                const key = el.getAttribute('data-i18n-title');
+                if (langData[key]) el.title = langData[key];
+            });
+            document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+                const key = el.getAttribute('data-i18n-aria');
+                if (langData[key]) el.setAttribute('aria-label', langData[key]);
+            });
+            document.title = (currentLang === 'ar')
+                ? 'حمزة عبد الله | مهندس برمجيات'
+                : 'Hamza Abdalla | Software Engineer';
         }
 
         // Mobile Drawer Toggle
@@ -1135,7 +1179,7 @@
                         <li>• Huawei: AI, Cloud Computing, and Data Management</li>
                         <li>• Hour of Code — Code.org & Minecraft</li>
                     </ul>
-                    <button onclick="switchView('certificates'); document.getElementById('chatbot-window').classList.add('hidden')" class="inline-block mt-1 px-3 py-1.5 bg-brand-600 text-white rounded-lg font-black text-[11px]">استعرض الشهادات الست</button>
+                    <button onclick="switchView('certificates'); document.getElementById('ai-chat-window').classList.add('hidden')" class="inline-block mt-1 px-3 py-1.5 bg-brand-600 text-white rounded-lg font-black text-[11px]">استعرض الشهادات الست</button>
                 `;
                 const certEn = `
                     <p class="font-black mb-2">Eng. Hamza has 6 verified certificates, including:</p>
@@ -1144,7 +1188,7 @@
                         <li>• Huawei: AI, Cloud Computing, and Data Management</li>
                         <li>• Hour of Code — Code.org & Minecraft</li>
                     </ul>
-                    <button onclick="switchView('certificates'); document.getElementById('chatbot-window').classList.add('hidden')" class="inline-block mt-1 px-3 py-1.5 bg-brand-600 text-white rounded-lg font-black text-[11px]">View All 6 Certificates</button>
+                    <button onclick="switchView('certificates'); document.getElementById('ai-chat-window').classList.add('hidden')" class="inline-block mt-1 px-3 py-1.5 bg-brand-600 text-white rounded-lg font-black text-[11px]">View All 6 Certificates</button>
                 `;
 
                 appendBotMessage(currentLang === 'ar' ? certAr : certEn);
@@ -1175,10 +1219,10 @@
 
             // Fallback Response
             const fallbackAr = `
-                أنا المساعد الذكي للمهندس حمزة عبد الله. يمكنك السؤال عن تسعير المواقع، استعراض الشهادات الست المعتمدة، أو الحصول على رقم التواصل والواتساب!
+                أنا المساعد الذكي للمهندس حمزة عبد الله. يمكنك السؤال عن تسعير المواقع أو الحصول على رقم التواصل والواتساب!
             `;
             const fallbackEn = `
-                I am Eng. Hamza's AI assistant. Feel free to ask about website pricing, 6 verified certificates, or direct contact information!
+                I am Eng. Hamza's AI assistant. Feel free to ask about website pricing or direct contact information!
             `;
             appendBotMessage(currentLang === 'ar' ? fallbackAr : fallbackEn);
         }
