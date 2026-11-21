@@ -1,0 +1,13 @@
+Certificate Images Added to Portfolio
+=====================================
+
+All 6 certificate images have been successfully referenced in the certificatesList JavaScript array:
+
+1. demi_level5 - certificate_DEMI4-S-206326.jpg
+2. hour_of_code - IMG-20250625-WA0002.jpg
+3. huawei_ai - IMG-20251226-WA0000.jpg
+4. huawei_cloud - IMG-20260120-WA0001.jpg
+5. huawei_data - IMG-20260130-WA0001.jpg
+6. huawei_cra - IMG-20260130-WA0002.jpg
+
+The certificates will display their associated images when the renderCertificatesGrid() function runs.
